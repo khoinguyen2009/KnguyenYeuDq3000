@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dành tặng cho ebé Dq💖</title>
+  <!-- Add a romantic Google Font that supports Vietnamese, e.g., "Dancing Script" -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap&subset=vietnamese" rel="stylesheet">
+  <style>
+    /* Reset */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg,#ff6dad 0%, #ef72a9 50%, #ff78af 100%);
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color:#a8004f;
+    }
+
+    /* Stage */
+    .stage{width:100%;max-width:930px;padding:2px}
+
+    /* Card */
+    .card{
+      position:relative;
+      background:rgba(255,182,213,0.10);
+      border-radius:24px;
+      padding:40px 48px;
+      box-shadow:0 10px 40px rgba(255,62,142,0.18);
+      backdrop-filter: blur(6px);
+      transform-origin:center;
+      overflow:hidden;
+      border:1px solid rgba(255,182,213,0.18);
+      text-align:center;
+    }
+
+    /* Big title */
+    .title{
+      font-size:clamp(26px,4vw,44px);
+      letter-spacing:1px;
+      margin-bottom:18px;
+      font-weight:700;
+      color:#d9006e;
+    }
+    .subtitle{
+      font-size:clamp(14px,2vw,18px);
+      opacity:0.9;
+      margin-bottom:24px;
+      color:#a8004f;
+    }
+
+    /* Letter area */
+    .letter-wrap {
+      max-height:62vh;
+      overflow:auto;
+      padding-right:8px;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE 10+ */
+    }
+    .letter-wrap::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera */
+    }
+    .letter{
+      font-family: 'Dancing Script', cursive, 'Georgia', 'Times New Roman', serif;
+      font-size:clamp(20px, 3vw, 24px);
+      line-height:1.65;
+      text-align:center;
+      padding:8px 1vw 28px 1vw;
+      transform:translateY(6px);
+      color:#a8004f;
+      word-break:break-word;
+    }
+    @media (max-width:600px){
+      .letter{
+        font-size:clamp(16px, 5vw, 20px);
+        padding:8px 4vw 28px 4vw;
+      }
+    }
+    @media (max-width:420px){
+      .card{padding:15px}
+      .letter{font-size: 18px !important;padding:15px 2vw 24px 2vw;}
+    }
+
+    /* Floating hearts */
+    .hearts{position:absolute;inset:0;pointer-events:none}
+    .heart{
+      position:absolute;
+      bottom:-10%;
+      width:26px;
+      height:26px;
+      opacity:0.9;
+      transform:translateY(0) scale(1);
+      animation:rise 8s linear infinite
+    }
+    .heart:before,.heart:after{
+      content:'';
+      position:absolute;
+      width:26px;
+      height:26px;
+      border-radius:50%;
+      background:radial-gradient(circle at 30% 30%, #fff3, #ffb6d5 30%, #ff3e8e 80%);
+    }
+    .heart:before{top:-13px;left:0}
+    .heart:after{left:13px;top:0}
+
+    @keyframes rise{
+      0%{opacity:0;transform:translateY(0) scale(0.85)}
+      8%{opacity:1}
+      100%{opacity:0;transform:translateY(-140vh) scale(1.2)}
+    }
+
+    /* Soft entrance animation for the card */
+    .card.enter{animation:popIn 900ms cubic-bezier(.18,.9,.33,1) both}
+    @keyframes popIn{from{opacity:0;transform:translateY(16px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+
+    /* Typewriter reveal (mask) */
+    .letter.revealed{animation:fadeInText 1s ease both}
+    @keyframes fadeInText{from{opacity:0;filter:blur(3px)}to{opacity:1;filter:blur(0)} }
+
+    /* Controls */
+    .controls{display:flex;gap:12px;justify-content:center;margin-top:20px}
+    .btn{
+      background:linear-gradient(180deg, rgba(255,182,213,0.18), rgba(255,62,142,0.10));
+      border:1px solid rgba(255,62,142,0.18);
+      padding:10px 16px;
+      border-radius:999px;
+      cursor:pointer;
+      font-weight:600;
+      color:#d9006e;
+      transition:background 0.2s, color 0.2s;
+    }
+    .btn:active{transform:translateY(1px);background:rgba(255,62,142,0.18);color:#a8004f;}
+    .btn#revealBtn {
+      position: relative;
+      background: linear-gradient(90deg, #ff6fae 0%, #ffb6d5 100%);
+      color: #fff;
+      font-size: 1.18em;
+      box-shadow: 0 0 16px 2px #ffb6d5, 0 2px 8px #ff3e8e44;
+      border: none;
+      outline: none;
+      transition: transform 0.18s, box-shadow 0.18s;
+      animation: revealGlow 1.2s infinite alternate;
+      padding: 12px 32px 12px 2.8em;
+      min-width: 150px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+      overflow: hidden;
+      top: -15px;
+    }
+
+    .btn#revealBtn::before {
+      content: "❤";
+      position: absolute;
+      left: 1em;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.2em;
+      color: #fff;
+      text-shadow: 0 0 8px #ff3e8e88;
+      pointer-events: none;
+    }
+
+    @media (max-width: 600px) {
+      .btn#revealBtn {
+        font-size: 1em;
+        padding: 10px 16px 10px 2.2em;
+        min-width: 110px;
+      }
+      .btn#revealBtn::before {
+        left: 0.7em;
+        font-size: 1em;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .btn#revealBtn {
+        font-size: 0.95em;
+        padding: 8px 8px 8px 1.8em;
+        min-width: 80px;
+      }
+      .btn#revealBtn::before {
+        left: 0.5em;
+        font-size: 0.95em;
+      }
+    }
+
+    /* Responsive improvements */
+@media (max-width: 1200px) {
+  .stage {
+    padding: 30px;
+    max-width: 80vw;
+  }
+  .card {
+    padding: 32px 24px;
+    max-width: 90vw;
+  }
+}
+
+@media (max-width: 900px) {
+  .stage {
+    padding: 20px;
+    max-width: 68vw;
+  }
+  .card {
+    padding: 24px 12px;
+    max-width: 98vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .stage {
+    padding: 8px;
+    max-width: 100vw;
+  }
+  .card {
+    padding: 12px 2vw;
+    border-radius: 14px;
+    font-size: 15px;
+  }
+  .title {
+    font-size: clamp(20px, 6vw, 32px);
+    margin-bottom: 10px;
+  }
+  .subtitle {
+    font-size: clamp(12px, 4vw, 16px);
+    margin-bottom: 14px;
+  }
+  .letter {
+    font-size: clamp(14px, 5vw, 18px);
+    padding: 8px 2vw 20px 2vw;
+  }
+  .btn#revealBtn {
+    font-size: 1em;
+    padding: 10px 18px 10px 2.2em;
+    min-width: 120px;
+  }
+}
+
+@media (max-width: 420px) {
+  .stage {
+    padding: 2px;
+  }
+  .card {
+    padding: 6px 1vw;
+    border-radius: 8px;
+  }
+  .title {
+    font-size: clamp(16px, 7vw, 22px);
+  }
+  .letter {
+    font-size: clamp(12px, 7vw, 15px);
+    padding: 6px 1vw 12px 1vw;
+  }
+  .btn#revealBtn {
+    font-size: 0.95em;
+    padding: 8px 10px 8px 1.8em;
+    min-width: 90px;
+  }
+}
+
+
+/* 💞 Side Photo Gallery */
+.side-gallery {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  opacity:0;
+  transition: opacity 1.5s ease;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.side-gallery.left {
+  left: 2%;
+  align-items: flex-start;
+}
+
+.side-gallery.right {
+  right: 2%;
+  align-items: flex-end;
+}
+
+.side-gallery figure {
+  background: #fff;
+  border-radius: 16px;
+  padding: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  opacity: 0;
+  width: 200px; /* size of the photo + border */
+  transition: opacity 1.2s ease, transform 1.2s ease;
+  transform: translateY(20px);
+  pointer-events: auto; /* so you can hover them */
+}
+
+.side-gallery figure:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 10px 28px rgba(255, 62, 142, 0.25);
+}
+
+.side-gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+}
+
+.side-gallery figcaption {
+  font-size: 0.9em;
+  font-weight: 500;
+  color: #a8004f;
+  margin-top: 6px;
+  font-family: 'Dancing Script', cursive;
+}
+
+/* Active (revealed) state */
+.show-photos .side-gallery {
+  opacity: 1;
+}
+
+.show-photos .side-gallery figure {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Soft entrance animation */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.side-gallery figure {
+  opacity: 0;
+  animation: fadeUp 1s ease forwards;
+}
+
+.side-gallery.left figure:nth-child(1) { animation-delay: 0.2s; }
+.side-gallery.left figure:nth-child(2) { animation-delay: 0.4s; }
+.side-gallery.right figure:nth-child(1) { animation-delay: 0.6s; }
+.side-gallery.right figure:nth-child(2) { animation-delay: 0.8s; }
+
+/* 🌸 Responsive behavior */
+@media (max-width: 1600px) {
+  .side-gallery figure {
+    width: 200px;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .side-gallery figure {
+    width: 140px;
+  }
+}
+
+
+@media (max-width: 900px) {
+  .side-gallery figure {
+    width: 120px;
+  }
+}
+
+@media (max-width: 700px) {
+  .side-gallery {
+    display: none; /* hide on very small screens for simplicity */
+  }
+}
+/* END OF IMG CSS CODE */
+
+/* ...existing code... */
+  </style>
+</head>
+<body>
+
+  <!-- ADD IMG -->
+  <div class="side-gallery left">
+    <figure>
+      <img src="./IMG/6.jpeg" alt="lần đầu nắm tay🥰">
+      <figcaption>lần đầu nắm tay🥰</figcaption>
+    </figure>
+    <figure>
+      <img src="./IMG/8.jpg" alt="vẫn là tụi mình hihi😘">
+      <figcaption>vẫn là tụi mình hihi😘</figcaption>
+    </figure>
+  </div>
+
+  <div class="side-gallery right">
+    <figure>
+      <img src="./IMG/7.jpg" alt="tụi mình nèe☺️">
+      <figcaption>tụi mình nèe☺️</figcaption>
+    </figure>
+    <figure>
+      <img src="./IMG/9.jpg" alt="Forever">
+      <figcaption>mãi mãi yêu Dq💖💖</figcaption>
+    </figure>
+  </div>
+
+  <!-- END OF IMG SECTION -->
+
+  <div class="stage">
+    <div class="card" id="card">
+      <div class="title">Dành cho nàng công chúa đang giữ trái tim tui💖</div>
+      <!-- <div class="subtitle">Tình c</div> -->
+
+      <div class="letter-wrap">
+        <div class="letter" id="letter"></div>
+      </div>
+
+      <div class="controls">
+        <button class="btn" id="revealBtn">Mở thư</button>
+      </div>
+
+      <div class="hearts" id="hearts"></div>
+    </div>
+  </div>
+
+  <script>
+    // --- The letter text: edit this string to customise the content. ---
+    const letterText = `Hé luuuu, Dq ơiiiiiii, Knguyen nè, ebé của Dq đây nòoo😘. Hôm nay là ngày 9/11/2025, anni 1 năm của tụi mình nèe, tụi mình bên cạnh nhau cũm 1 năm òi đó, cũm nhanh thiệt ha. Ngày này năm trước, ông trời đã mang Dq đến với Knguyen, Dq đã xuất hiện trong cuộc đời của Knguyen đúng lúc mà em cảm thấy chán nản, mệt mỏi nhất. Nhờ Dq mà Knguyen cảm thấy vui hơn, hạnh phúc hơn và yêu đời hơn. Được ở bên cạnh Dq em cảm thấy hạnh phúc lắm🥰, cũm vì Dq mà Knguyen có thêm động lực để cố gắng phấn đấu, nỗ lực hơn từng ngày, nghe thì có vẻ hơi xa nhưng Knguyen thật sự muốn cố gắng để sau này có được ở bên cạnh Dq và có thể chăm sóc cho Dq nè, muốn được đồng hành cùng Dq để cùng thực hiện những ước mơ của tụi mình nữa. Dq ơiiii, Knguyen biết là em vẫn còn rất nhiều thiếu xót, còn rất nhiều lần em đã làm cho Dq phải buồn, phải khóc🥹, em xin lỗi Dq rất nhiềuu, thật lòng Knguyen không bao giờ muốn nhìn thấy Dq buồn hay phải khóc, thấy Dq khóc em cũng xót nhiều lắm, vì vậy mà Knguyen đã luôn cố gắng để thay đổi bản thân mình nhiều hơn, những điều làm Dq buồn hay những thứ Dq hong thích Knguyen đều cố thay đổi, thấu hiểu Dq nhiều hơn, em muốn Dq hong phải buồn vì em nữa. Dq cũm đừng lo là Knguyen sẽ buồn hay gì hết, Knguyen luôn hiểu cho Dq mà, em tin là Dq hong bao giờ cố ý làm Knguyen buồn hết, chỉ là chị có những lý do, những áp lực riêng hoi mà đún hong. Knguyen muốn khi ở bên cạnh Knguyen, Dq được là chính mình, cảm thấy thoải mái và hạnh phúc, hong phải lo lắng hay buồn vì điều gì, chỉ cần như vậy thôi là Knguyen vui lắm rùiii☺️. Dq ơi, em xin lỗi vì khoảng cách địa lí khiến cho bây giờ tụi mình hong còn được ở gần bên nhau, được gặp mặt nhau nhiều như lúc trước nữa🥹 em biết là trong tình iu có những khó khăn nhưng mà Knguyen tin là chỉ cần trong trái tim tụi mình vẫn có nhau thì sẽ vượt qua được hết và có thể đồng hành cùng nhau thật là lâu, hi vọng đến khi hết đời hì người ở bên cạnh Knguyen vẫn là Dq☺️. Knguyen hứa với Dq là Knguyen sẽ mãi mãi chỉ yêu một mình Dq hoiii, sẽ hong có một ai có thể làm lung lay tình yêu của Knguyen dành cho Dq được, và Knguyen cũm muốn hứa với Dq là ngày này 2 năm nữa, sẽ hong còn khoảng cách địa lí nữa, tụi mình sẽ ở bên cạnh nhau và tổ chức anni cùng nhau nhaaa, hi vọng Dq sẽ giúp Knguyen thực hiện được lời hứa này hihihi. Vị là cũm hết thư òi nè, Happy anniversary 1 year!! Cúi cùng hì Knguyen muốn cảm ơn Dq, cảm ơn Dq vì đã xuất hiện trong cuộc đời Knguyen, cảm ơn vì đã mang tình yêu đến cho Knguyen, Knguyen thật sự vô cùng trân trọng tình cảm của Dq dành cho em nên em sẽ không bao giờ muốn để đánh mất đâu, cảm ơn Dq vì đã để Knguyen được ở bên cạnh, quan tâm và yêu thương Dq, Knguyen thật sự cảm  thấy hạnh phúc lắm. Chúc tụi mình sẽ mãi mãi ở bên cạnh nhau, mãi mãi yêu thương nhauuu. Knguyen chỉ muốn nói một điều hoi, Knguyen yêu dq rất nhiềuuuuuu, mãi mãi sẽ chỉ yêu mình Dq hoiiiii💖💖. Cảm ơn Dq, nàng công chúa của Knguyen🥹💖`;
+
+    // Insert text into DOM but keep hidden for the reveal animation
+    const letterEl = document.getElementById('letter');
+    // Break the letter into paragraphs
+    const paragraphs = letterText.split('\n\n').map(p => p.replace(/^\s+|\s+$/g, ''));
+    paragraphs.forEach(p => {
+      const pEl = document.createElement('p');
+      pEl.textContent = p;
+      letterEl.appendChild(pEl);
+    });
+
+    // Entrance animation
+    const card = document.getElementById('card');
+    setTimeout(()=>card.classList.add('enter'),50);
+
+    // Generate floating hearts
+    const heartsContainer = document.getElementById('hearts');
+    function makeHeart(){
+      const h = document.createElement('div');
+      h.className = 'heart';
+      // random horizontal position
+      h.style.left = Math.random()*100 + '%';
+      // random size
+      const size = 14 + Math.random()*36;
+      h.style.width = size + 'px';
+      h.style.height = size + 'px';
+      h.style.opacity = (0.6 + Math.random()*0.4).toFixed(2);
+      // random animation duration and delay
+      const dur = 6 + Math.random()*8;
+      h.style.animationDuration = dur + 's';
+      h.style.animationDelay = (Math.random()*-4) + 's';
+      heartsContainer.appendChild(h);
+      // remove after animation to keep DOM tidy
+      setTimeout(()=>h.remove(), (dur+2)*1000);
+    }
+    // spawn hearts periodically
+    setInterval(makeHeart, 700);
+
+    // Smooth reveal (gradual fade + slight typewriter pacing)
+    const revealBtn = document.getElementById('revealBtn');
+    revealBtn.addEventListener('click', ()=>{
+      revealBtn.disabled = true;
+      // reveal with gentle fade and small delays per paragraph
+      const paras = Array.from(letterEl.querySelectorAll('p'));
+      let idx = 0;
+      letterEl.style.opacity = '1';
+      function showNext(){
+        if(idx>=paras.length){
+          letterEl.classList.add('revealed');
+          revealBtn.disabled = false;
+          return;
+        }
+        const p = paras[idx];
+        p.style.opacity = '0';
+        p.style.transform = 'translateY(6px)';
+        p.style.transition = 'opacity 480ms ease, transform 480ms ease';
+        // small timeout to allow CSS to apply
+        requestAnimationFrame(()=>{
+          p.style.opacity = '1';
+          p.style.transform = 'translateY(0)';
+        });
+        idx++;
+        setTimeout(showNext, 420 + Math.random()*220);
+      }
+
+      // Play music when revealed
+        bgMusic.currentTime = 1;
+        bgMusic.volume = 0.6;  // restart from beginning
+        bgMusic.play();
+
+      // Show side photos
+      document.body.classList.add('show-photos');
+
+      showNext();
+    });
+
+    // start with hidden paragraphs (so reveal works)
+    (function hideParas(){
+      const paras = Array.from(letterEl.querySelectorAll('p'));
+      paras.forEach(p=>{p.style.opacity='0';p.style.transform='translateY(6px)'});
+    })();
+  </script>
+<audio id="bgMusic" src="./Audio/Audio1.mp3" loop></audio>
+</body>
+</html>
